@@ -25,7 +25,7 @@ best <- function(state, outcome) {
     
     ## Find the compared column with the state respectively
     dataFrame.state <- dataFrame[dataFrame$State==state, ]
-    compCol <- as.numeric(dataFrame.state[, compColName])
+    compCol <- suppressWarnings(as.numeric(as.character(dataFrame.state[, compColName])))
     
     ## Find the hospital with the minimum death rate respectively
     foundMin <- which(compCol==min(compCol, na.rm = TRUE))
