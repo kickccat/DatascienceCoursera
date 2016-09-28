@@ -9,7 +9,7 @@
 
 best <- function(state, outcome) {
     ## Read outcome data
-    dataFrame <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
+    dataFrame <- read.csv("outcome-of-care-measures.csv", header = TRUE)
     states <- unique(dataFrame$State)
     outcomes <- c("heart attack", "heart failure", "pneumonia")
     
@@ -32,5 +32,7 @@ best <- function(state, outcome) {
     foundHospitals <- dataFrame.state[foundMin, 2]
     
     ## If more than one hospital found, return the first hospital name alphabetical sorted
-    return(sort(foundHospitals)[1])
+    hospital <- as.character(sort(foundHospitals))
+    ## print(attributes(hospital))
+    hospital[1]
 }
