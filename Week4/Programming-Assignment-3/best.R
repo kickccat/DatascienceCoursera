@@ -14,8 +14,8 @@ best <- function(state, outcome) {
     outcomes <- c("heart attack", "heart failure", "pneumonia")
     
     ## Check that state and outcome are valid
-    try(if(!(state %in% states)) stop(message("invalid state!")))
-    try(if(!(outcome %in% outcomes)) stop(message("invalid outcome!")))
+    if(!(state %in% states)) stop("invalid state!")
+    if(!(outcome %in% outcomes)) stop("invalid outcome!")
     
     ## Columns names to store the death rate
     storeColNames <- c(names(dataFrame)[11], names(dataFrame)[17], names(dataFrame)[23])
