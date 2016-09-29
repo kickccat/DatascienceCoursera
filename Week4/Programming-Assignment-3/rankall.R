@@ -22,7 +22,7 @@ rankall <- function(outcome, num = "best"){
     ## The hospitals with the chosen outcome with
     ## columns "1. hospital name", "2. ranking value" and "3. state"
     hospitals <- newDataFrame[, c(1, idxChosen, 2)]
-    ## hospitals <- hospitals[hospitals[, 2]!="Not Available", ]
+    hospitals <- hospitals[hospitals[, 2]!="Not Available", ]
     
     ## Change factors to numeric values
     hospitals[, 2] <- suppressWarnings(as.numeric(as.character(hospitals[, 2])))
@@ -34,11 +34,13 @@ rankall <- function(outcome, num = "best"){
     
     ## Set the blank result dataframe
     result <- data.frame()
+    worstResult <- data.frame()
     
     ## Reorder the ranking according to the different states and storing in result
     for (state in states){
         tempSub <- subset(hospitals, hospitals[, 3]==state) ## slicing as per state
         tempSub <- tempSub[order(tempSub[, 2], tempSub[, 1]), ] ## reorder as per ranking score
+        worstResult <- rbind(worstResult, tempSub[nrow(tempSub), ])
         rankIndex <- c(1:nrow(tempSub)) ## set the ranking index
         newSub <- cbind(tempSub, rankIndex) ## add the ranking index as a new column to the slicing dataframe
         result <- rbind(result, newSub)
@@ -46,13 +48,15 @@ rankall <- function(outcome, num = "best"){
     
     ## Reorder as per ranking index and hospital name
     result <- result[order(result$rankIndex, result$State, result$Hospital.Name), ]
+    worstResult <- worstResult[order(worstResult$State, worstResult$Hospital.Name), ]
     
     ## Check the num value
     if(num == "best"){
         num <- 1
     }
     else if(num == "worst"){
-        num <- result$rankIndex[nrow(result)]
+        slicedResult <- worstResult
+        return(slicedResult[, c(1, 3)])
     }
     else if(!is.na(num) & num <= nrow(hospitals)){
         num <- as.numeric(num)
