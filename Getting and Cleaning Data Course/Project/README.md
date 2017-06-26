@@ -22,4 +22,4 @@ Here are the data used for the project:\
   + Appropriately labels the data set with descriptive variable names.
   + From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
   
-* The tidy data set file ["tidyDataset.txt"](https://github.com/kickccat/DatascienceCoursera/blob/master/Getting%20and%20Cleaning%20Data%20Course%20Project/tidyDataset.txt) is from the last step of R-script process about the mean measurement of each activity and each subject.
+* The tidy data set file ["tidyDataset.txt"](https://github.com/kickccat/DatascienceCoursera/blob/master/Getting%20and%20Cleaning%20Data%20Course/Project/tidyDataset.txt) is from the last step of R-script process about the mean measurement of each activity and each subject.
