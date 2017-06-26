@@ -15,7 +15,7 @@ Here are the data used for the project:\
 [Source data](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip).
 
 ## Summary
-* R script ["run_analysis.R"](DatascienceCoursera/Getting and Cleaning Data Course/Project/run_analysis.R) does the following:
+* R script ["run_analysis.R"](https://github.com/kickccat/DatascienceCoursera/blob/master/Getting%20and%20Cleaning%20Data%20Course/Project/run_analysis.R) does the following:
   + Merges the training and the test sets to create one data set.
   + Extracts only the measurements on the mean and standard deviation for each measurement.
   + Uses descriptive activity names to name the activities in the data set.
